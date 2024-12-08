@@ -1,0 +1,12 @@
+<div>
+  {{ search }}
+  <input
+    type="text"
+    (keyup)="handleKeyUp(inputReference.value)"
+    [value]="search"
+    #inputReference
+  />
+  <button (click)="handleClick()">
+    click me and show alert with text from input
+  </button>
+</div>
