@@ -1,5 +1,7 @@
 # Angular fundamentals V18
 
+[Demo](https://angular-v18-user-task-management.vercel.app/)
+
 - generate angular component
 
 ```bash
@@ -92,10 +94,10 @@ Usage Steps
    In the child component class, decorate the property you want to receive data with @Input:
 
 ```ts
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-child',
+  selector: "app-child",
   template: `<p>Received data: {{ data }}</p>`,
 })
 export class ChildComponent {
@@ -116,11 +118,11 @@ export class ChildComponent {
 
 ```ts
 @Component({
-  selector: 'app-parent',
+  selector: "app-parent",
   template: `<app-child [data]="parentData"></app-child>`,
 })
 export class ParentComponent {
-  parentData: string = 'Hello from Parent Component!';
+  parentData: string = "Hello from Parent Component!";
 }
 ```
 
@@ -129,13 +131,13 @@ export class ParentComponent {
 `input` signal function provides a new way to handle parent-to-child communication. it is more effective but The immutable and cannot be directly modified in the child.
 
 ```ts
-import { Component, input } from '@angular/core';
+import { Component, input } from "@angular/core";
 
 @Component({
-  selector: 'app-user',
+  selector: "app-user",
   imports: [],
-  templateUrl: './user.component.html',
-  styleUrl: './user.component.css',
+  templateUrl: "./user.component.html",
+  styleUrl: "./user.component.css",
 })
 export class UserComponent {
   // inside input function you can specify default value if you need
@@ -160,21 +162,11 @@ Is used to define an output property in a child component, allowing the componen
   </p>
   <p>
     <label for="summary">Summary</label>
-    <textarea
-      id="summary"
-      rows="5"
-      name="summary"
-      [(ngModel)]="enteredSummary"
-    ></textarea>
+    <textarea id="summary" rows="5" name="summary" [(ngModel)]="enteredSummary"></textarea>
   </p>
   <p>
     <label for="due-date">Due Date</label>
-    <input
-      type="date"
-      id="due-date"
-      name="due-date"
-      [(ngModel)]="enteredDate"
-    />
+    <input type="date" id="due-date" name="due-date" [(ngModel)]="enteredDate" />
   </p>
   <p class="actions">
     <button type="button" (click)="onCancel()">Cancel</button>
@@ -196,9 +188,7 @@ Is used to define an output property in a child component, allowing the componen
 or for older version we have tu use directive `*ngIf`
 
 ```html
-<div *ngIf="yourCondition; else fallback">
-  visible text if yourCondition is true
-</div>
+<div *ngIf="yourCondition; else fallback">visible text if yourCondition is true</div>
 <ng-template #fallback>
   <div id="fallback">visible text if yourCondition is false</div>
 </ng-template>
@@ -257,7 +247,7 @@ Formats a date value according to locale rules
 - services decorator @Injectable({ providedIn: 'root' })
 
 ```ts
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class TaskService {}
 ```
 
@@ -290,5 +280,3 @@ or better way
 })
 export class AppModule {}
 ```
-
-[demo]
